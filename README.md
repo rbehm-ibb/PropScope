@@ -1,6 +1,6 @@
 # PropScope
 <img style="float: right;" src="logo-scope.png">
-A new interface for the PropScope.
+A new interface for the PropScope. https://www.parallax.com/product/32220
 The development of the original PropScope seems to be dead and I did not like the host software.
 
 So I created my own version. This includes new software running on the PropScope as well as a host program.
