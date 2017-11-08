@@ -5,10 +5,11 @@ The development of the original PropScope seems to be dead and I did not like th
 
 So I created my own version. This includes new software running on the PropScope as well as a host program.
 
-Currently only one COGis used for data aquisitaion so the max sampling rate is only 1MHz. 
+Currently only one COGis used for data aquisitaion so the max sampling rate is only 1MHz.
 
 Prerequisits:
 Qt5 (5.5 tested on Linux)
+qcustomplot 1.3.1 http://qcustomplot.com/
 
 The current repo is not complete, some of my std-libs are missing.
 
