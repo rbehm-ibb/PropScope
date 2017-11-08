@@ -1,5 +1,5 @@
 // ******************************************************
-// * copyright (C) 2016 by Becker Electronics Taiwan Ltd.
+// * copyright (C) 2015 by Reinhardt Behm/rbehm@hushmail.com
 // * All Rights reserved
 // * created 1/30/2016 by behm
 // ******************************************************
