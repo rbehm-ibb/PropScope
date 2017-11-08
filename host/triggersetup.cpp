@@ -66,7 +66,7 @@ TriggerSetup::TriggerSetup(ScopeScreen *screen, ScopeSetup *setScope, QWidget *p
 
 	grid->addWidget(new QLabel("PostTrg"), 3, 0);
 	grid->addWidget(m_post = new QSpinBox, 3, 1);
-	grid->addWidget(m_active = new LedIcon, 3, 2);
+	grid->addWidget(m_active = new LedIcon(this), 3, 2);
 	m_active->setText("Triggered");
 	m_active->setSize(18);
 	m_post->setRange(0, 100);

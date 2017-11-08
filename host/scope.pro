@@ -6,12 +6,12 @@
 # // ******************************************************
 
 TEMPLATE = app
-include( $$[PRTEMPLATE]/project.pri )
-include( $$[PRTEMPLATE]/lib/utils/stdicons.pri )
-include( $$[PRTEMPLATE]/lib/utils/toolbarspacer.pri )
-include( $$[PRTEMPLATE]/lib/utils/ledicon/ledicon.pri )
+include( ./templateQt5/project.pri )
+include( ./templateQt5/lib/utils/stdicons.pri )
+include( ./templateQt5/lib/utils/toolbarspacer.pri )
+include( ./templateQt5/lib/utils/ledicon/ledicon.pri )
 include( ./serialport/ipccomm.pri )
-include( $$[PRTEMPLATE]/qcustomplot.pri )
+include( ./templateQt5/qcustomplot.pri )
 
 # select which ones are needed
 QT += core gui widgets
@@ -62,4 +62,8 @@ SOURCES += \
 RESOURCES += \
     icons.qrc
 OTHER_FILES += styles.css
+
+DISTFILES += \
+    ../LICENSE \
+    ../README.md
 

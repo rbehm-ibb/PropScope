@@ -49,7 +49,7 @@ MainWindow::MainWindow(QWidget *parent)
 	act = tbScope->addAction(QIcon(":/stop"), "Stop");
 	connect(act, &QAction::triggered, m_scope, &PropScope::stop);
 	act->setShortcut(QKeySequence("Ctrl+H"));
-	tbScope->addWidget(m_running = new LedIcon);
+	tbScope->addWidget(m_running = new LedIcon(this));
 
 	act = tbScope->addAction(QIcon(":/remove"), "ClrCur");
 	connect(act, &QAction::triggered, m_pointsModel, &PointsModel::clear);
@@ -95,7 +95,7 @@ MainWindow::MainWindow(QWidget *parent)
 	connect(m_pointsModel, &PointsModel::selected, m_pointsView, &PointTableView::setCurrentIndex);
 	m_cursorDock->setWidget(m_pointsView);
 
-	m_active = new LedIcon;
+	m_active = new LedIcon(this);
 	m_active->setSize(20);
 	m_devInfo = new QLabel;
 	statusBar()->addPermanentWidget(m_devInfo);
