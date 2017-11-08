@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>styles.css</file>
+        <file alias="logo">pics/logo-scope.png</file>
+        <file>pics/image.svgz</file>
+    </qresource>
+</RCC>

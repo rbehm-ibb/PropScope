@@ -1,0 +1,53 @@
+QMainWindow::separator {
+	width: 10px; /* when vertical */
+	height: 10px; /* when horizontal */
+}
+
+QDockWidget {
+}
+
+QDockWidget::title {
+	text-align: center;
+	margin: 1px;
+	background: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #6060ff, stop: 1 #ffffff);
+	font: bold;
+}
+
+QStatusBar {
+	background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+			 stop: 0 #cbccda, stop: 0.05 #ffffff, stop: 0.1 #cbccda, stop: 0.9 #ffffff, stop: 1.0 #dadce8);
+}
+
+/*
+QStatusBar::item {
+	border: none;
+	background: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 1 #6060ff, stop: 0 #ffffff);
+}
+
+QStatusBar::LedIcon {
+	border: none; background: white;
+}
+*/
+
+QStatusBar QLabel {
+	margin: 2px 5px;
+}
+
+DataLabel {
+	min-width: 50;
+	background-color: white;
+	border: 1px solid gray;
+	margin: 1px;
+	padding: 2px;
+}
+
+DataLabel:disabled {
+	background-color: yellow;
+	color: black;
+}
+
+/*
+QCheckBox::indicator { width: 15px; height: 15px; }
+QCheckBox::indicator::unchecked { image: url(:/led/LED_yellow.png); }
+QCheckBox::indicator::checked { image: url(:/led/LED_blue.png) }
+*/

@@ -1,0 +1,2 @@
+#!/bin/bash
+/home/behm/dvlsw/propellor/bin/bstc -Ocbgxur -e -l -s -e main

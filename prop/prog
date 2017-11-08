@@ -1,0 +1,2 @@
+#!/bin/bash
+/home/behm/dvlsw/propellor/bin/p1load -e main.eeprom
