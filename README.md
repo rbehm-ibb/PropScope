@@ -1,4 +1,5 @@
 # PropScope
+<img style="float: right;" src="logo-scope.png">
 A new interface for the PropScope.
 The development of the original PropScope seems to be dead and I did not like the host software.
 
