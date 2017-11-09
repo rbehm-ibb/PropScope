@@ -1,0 +1,3 @@
+ACTION=="add", SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_interface",         ATTRS{idVendor}=="13e2", ATTRS{idProduct}=="0080",         DRIVER=="", RUN+="/sbin/modprobe -b ftdi_sio product=0x0080  vendor=0x13e2"
+ACTION=="add", SUBSYSTEM=="drivers",         ENV{DEVPATH}=="/bus/usb-serial/drivers/ftdi_sio",         ATTR{new_id}="13e2 0080"
+ACTION=="add", KERNEL=="ttyUSB*", 	ATTRS{interface}=="PropScope",         SYMLINK+="prop.scope"
