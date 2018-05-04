@@ -12,8 +12,6 @@ Currently only one COG is used for data aquisition so the max sampling rate is o
 * Qt5 (5.5 tested on Linux)
 * qcustomplot 1.3.1 http://qcustomplot.com/
 
-The current repo is not complete, some of my std-libs are missing.
-
 Here is a screen shot of the current software:
 
 <img style="float: right;" src="cursor.png">
