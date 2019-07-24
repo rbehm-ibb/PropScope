@@ -26,14 +26,14 @@ public:
 	/// Settings are 8bit/char, no parity, no flow control.
 	/// \param device the device to use with optional baudrate appended like "ttyS0:9600".
 	/// \param parent for QObject
-	IBSerialPort(QString device, QObject *parent = 0);
-	IBSerialPort(QString device, int defaultBaud, QObject *parent = 0);
+	IBSerialPort(QString device, QObject *parent = nullptr);
+	IBSerialPort(QString device, int defaultBaud, QObject *parent = nullptr);
 	/// \brief Create IBSerialPort by selecting via vendorID and productID
 	/// \param vid vendor ID
 	/// \param pid product ID
 	/// \param baud baudrate
 	/// \param parent for QObject
-	IBSerialPort(quint16 vid, quint16 pid, int baud, QObject *parent = 0);
+	IBSerialPort(quint16 vid, quint16 pid, int baud, QObject *parent = nullptr);
 	QString device() const;
 private:
 	void init(QString device, int defaultBaud);

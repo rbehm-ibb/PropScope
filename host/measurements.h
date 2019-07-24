@@ -16,7 +16,7 @@ class Measurements : public QWidget
 {
 	Q_OBJECT
 public:
-	explicit Measurements(QWidget *parent = 0);
+	explicit Measurements(QWidget *parent = nullptr);
 	~Measurements();
 signals:
 	void minMax(int ch, qreal min, qreal max, qreal avg, qreal rms);

@@ -62,7 +62,7 @@ public:
 	/// Create an object
 	/// \param device The device (e.g. ttyUSB0) to use, with optional baudrate (ttyUSB1:57600, the default is 57600).
 	/// \param parent for QObject
-	explicit IpcComm(quint16 vid, quint16 pid, QObject *parent = 0);
+	explicit IpcComm(quint16 vid, quint16 pid, QObject *parent = nullptr);
 
 	bool isValidPort() const;
 	QString device() const;

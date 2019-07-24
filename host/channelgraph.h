@@ -30,7 +30,7 @@ public:
 	void setPointsModel(PointsModel *model);
 	void setData(const ConfigChannelData &chConf, const AnalogData time, const AnalogData values);
 	qreal dataAt(qreal time);
-	int idx() const { return m_idx; }
+	uint idx() const { return m_idx; }
 	const QCPDataMap *data() const { return QCPGraph::data(); }
 
 	HCursor *addHCursor(qreal y, QString name = QString(), QPen pen = Qt::NoPen);	// NoPen gives default

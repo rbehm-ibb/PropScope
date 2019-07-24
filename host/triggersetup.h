@@ -20,7 +20,7 @@ class TriggerSetup : public QWidget
 {
 	Q_OBJECT
 public:
-	explicit TriggerSetup(ScopeScreen *screen, ScopeSetup *setScope, QWidget *parent = 0);
+	explicit TriggerSetup(ScopeScreen *screen, ScopeSetup *setScope, QWidget *parent = nullptr);
 	void init(const TriggerData &t);
 	const TriggerData get() const;
 signals:

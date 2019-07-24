@@ -60,7 +60,7 @@ void IBSerialPort::init(QString device, int defaultBaud)
 	{
 		bool ok;
 		QString sbaud = device.section(':', 1);
-		baud = sbaud.toUInt(&ok);
+		baud = sbaud.toInt(&ok);
 		if (! ok)
 		{
 			qWarning() << Q_FUNC_INFO << "Bad baudrate given" << device << "using default";

@@ -19,7 +19,7 @@ class ScopeSetup : public QWidget
 {
 	Q_OBJECT
 public:
-	explicit ScopeSetup(PropScope *scope, ScopeScreen *screen, QWidget *parent = 0);
+	explicit ScopeSetup(PropScope *scope, ScopeScreen *screen, QWidget *parent = nullptr);
 	void init(const ConfigData &conf);
 	const ConfigData getSettings() const;
 	void save(QSettings &conf) const { getSettings().save(&conf); }

@@ -13,7 +13,7 @@ class PointTableView : public QTableView
 {
 	Q_OBJECT
 public:
-	PointTableView(PointsModel *model, QWidget *parent = 0);
+	PointTableView(PointsModel *model, QWidget *parent = nullptr);
 public slots:
 	void insert();
 	void append();

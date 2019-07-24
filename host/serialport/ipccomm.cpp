@@ -17,7 +17,7 @@ enum ControlChar {
 	WACK = 'W'	///< internal keep alive
 };
 
-const int RxCharTime = 10;	///< The inter message byte to byte timeouts.
+const int RxCharTime = 100;	///< The inter message byte to byte timeouts.
 const int TxRespTime = 100;	///< The timeout for rx of a response.
 
 IpcCommThread::IpcCommThread(quint16 vid, quint16 pid, QObject *parent)
@@ -128,7 +128,7 @@ void IpcComm::rxReady()
 //	if (verbose) qDebug() << Q_FUNC_INFO << rx.size() << rx.toHex();
 	for (int i = 0; i < rx.size(); ++i)
 	{
-		quint8 rxc = rx.at(i);
+		quint8 rxc = static_cast<quint8>(rx.at(i));
 		(this->*m_rxState)(rxc);
 	}
 }
@@ -184,7 +184,7 @@ void IpcComm::txPoll()
 		quint8 txSum = STX;
 		for (int i = 0; i < m_txBuffer.size(); ++i)
 		{
-			const quint8 txc = m_txBuffer.at(i);
+			const quint8 txc = static_cast<quint8>(m_txBuffer.at(i));
 			txByte(txc);
 			txSum += txc;
 			if (txc == DLE)
@@ -205,7 +205,7 @@ void IpcComm::txPoll()
 
 void IpcComm::timeoutRx()
 {
-	qDebug() << Q_FUNC_INFO << m_rxStateName;
+	qDebug() << Q_FUNC_INFO << m_rxStateName << m_rxBuffer.size();
 	m_rxBuffer.clear();
 	m_rxState = &IpcComm::rxIdle;
 	m_rxStateName = "rxIdle";
@@ -253,7 +253,7 @@ void IpcComm::rxData(quint8 rxd)
 	}
 	else
 	{
-		m_rxBuffer.append(rxd);
+		m_rxBuffer.append(static_cast<char>(rxd));
 		m_rxSum += rxd;
 	}
 	m_rxTimer->start(RxCharTime);
@@ -267,7 +267,7 @@ void IpcComm::rxDle(quint8 rxd)
 	{
 	case DLE:
 		m_rxSum += rxd;
-		m_rxBuffer.append(rxd);
+		m_rxBuffer.append(static_cast<char>(rxd));
 		m_rxState = &IpcComm::rxData;
 		m_rxStateName = "rxData";
 		break;

@@ -18,8 +18,8 @@ public:
 	void setText(const QString text);
 	void setVisible(bool on);
 	virtual void mouseMoveEvent(QMouseEvent *event) = 0;
-	int id() const { return m_id; }
-	void setId(int id) { m_id = id; }
+	uint id() const { return m_id; }
+	void setId(uint id) { m_id = id; }
 signals:
 	void deleted(ScopeCursor *me);
 	void cursorSelected(ScopeCursor *me);
@@ -27,7 +27,7 @@ public slots:
 
 protected:
 	const Side m_side;
-	int m_id;
+	uint m_id;
 	QCPItemText *m_text;
 	QString m_baseText;
 
@@ -39,18 +39,18 @@ class HCursor : public ScopeCursor
 {
 	Q_OBJECT
 public:
-	HCursor(QCPGraph *graph, int gid, ScopeCursor::Side side, QPen pen);
+	HCursor(QCPGraph *graph, uint gid, ScopeCursor::Side side, QPen pen);
 	void setY(qreal y);
 	qreal posY() const { return point1->value(); }
 	void mouseMoveEvent(QMouseEvent *event);
-	int graphId() const { return m_graphId; }
+	uint graphId() const { return m_graphId; }
 
 signals:
 	void posYchanged(HCursor *cursor, qreal y);
 	void posYchangedId(int id, qreal y);
 private slots:
 protected:
-	const int m_graphId;
+	const uint m_graphId;
 };
 
 class VCursor : public ScopeCursor

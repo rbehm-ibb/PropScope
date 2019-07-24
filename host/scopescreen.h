@@ -16,7 +16,7 @@ class ScopeScreen : public QCustomPlot
 {
 	Q_OBJECT
 public:
-	ScopeScreen(QWidget *parent = 0);
+	ScopeScreen(QWidget *parent = nullptr);
 	ChannelGraphVector channels() const { return m_channel; }
 	void saveData(QSettings &file);
 	AnalogDataSet loadData(ConfigData &config, QSettings &file);

@@ -16,8 +16,8 @@ public:
 		const char *name;
 		int value;
 	};
-	SelectBox(QWidget *parent = 0);
-	SelectBox(const SelectBox::ItemsInit items[], QWidget *parent = 0);
+	SelectBox(QWidget *parent = nullptr);
+	SelectBox(const SelectBox::ItemsInit items[], QWidget *parent = nullptr);
 	void setItems(const ItemsInit items[]);
 	int value() const;
 signals:

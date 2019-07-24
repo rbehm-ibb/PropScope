@@ -125,7 +125,7 @@ void ScopeCursor::selectEvent(QMouseEvent *event, bool additive, const QVariant 
 	}
 }
 
-HCursor::HCursor(QCPGraph *graph, int gid, Side side, QPen pen)
+HCursor::HCursor(QCPGraph *graph, uint gid, Side side, QPen pen)
 	: ScopeCursor(graph, side, pen)
 	, m_graphId(gid)
 {

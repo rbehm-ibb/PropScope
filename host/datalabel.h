@@ -11,7 +11,7 @@ class DataLabel : public QLabel
 {
 	Q_OBJECT
 public:
-	DataLabel(QString unit, QWidget *parent = 0);
+	DataLabel(QString unit, QWidget *parent = nullptr);
 	void setData(qreal v);
 	void clear() { setText(QString()); }
 protected:
