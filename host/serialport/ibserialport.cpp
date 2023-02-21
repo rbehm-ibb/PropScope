@@ -41,9 +41,9 @@ IBSerialPort::IBSerialPort(quint16 vid, quint16 pid, int baud, QObject *parent)
 			return;
 		}
 	}
-	if (! device.isValid())
+	if (! device.isNull())
 	{
-		qWarning() << Q_FUNC_INFO << hex << vid << pid << hex << "not found";
+		qWarning() << Q_FUNC_INFO << Qt::hex << vid << pid << Qt::hex << "not found";
 
 	}
 }
@@ -55,7 +55,7 @@ QString IBSerialPort::device() const
 
 void IBSerialPort::init(QString device, int defaultBaud)
 {
-	int baud = defaultBaud == 0 ? 9600 :defaultBaud;
+	int baud = defaultBaud == 0 ? 9600 : defaultBaud;
 	if (device.contains(':'))
 	{
 		bool ok;

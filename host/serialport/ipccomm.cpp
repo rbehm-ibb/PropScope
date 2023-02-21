@@ -8,7 +8,8 @@
 #include "ibserialport.h"
 
 /// \brief The ControlChar enum defines the control chars used in the protocol.
-enum ControlChar {
+enum ControlChar
+{
 	STX = 'S',	///< The start of text
 	ETX = 'E',	///< The end of text
 	DLE = 'D',	///< data link escape
@@ -84,7 +85,7 @@ QString IpcComm::device() const
 	}
 	else
 	{
-		return QString::null;
+		return QString();
 	}
 }
 

@@ -2,7 +2,7 @@
 CVS
 .cvsignore
 *.pro.user
-.build
+.*
 unused
 Makefile
 calib.txt

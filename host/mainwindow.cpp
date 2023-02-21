@@ -67,27 +67,27 @@ MainWindow::MainWindow(QWidget *parent)
 
 	QDockWidget *dock;
 	dock = new QDockWidget(tr("Sampling/Scaling"), this);
-	dock->setFeatures(QDockWidget::AllDockWidgetFeatures);
+	dock->setFeatures(QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetFloatable);
 	dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
 	addDockWidget(Qt::RightDockWidgetArea, dock);
 	dock->setWidget(m_setScope = new ScopeSetup(m_scope, m_screen));
 
 	dock = new QDockWidget(tr("Trigger"), this);
-	dock->setFeatures(QDockWidget::AllDockWidgetFeatures);
+	dock->setFeatures(QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetFloatable);
 	dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
 	addDockWidget(Qt::RightDockWidgetArea, dock);
 	m_trig = new TriggerSetup(m_screen, m_setScope);
 	dock->setWidget(m_trig);
 
 	dock = new QDockWidget(tr("Measurements"), this);
-	dock->setFeatures(QDockWidget::AllDockWidgetFeatures);
+	dock->setFeatures(QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetFloatable);
 	dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
 	addDockWidget(Qt::RightDockWidgetArea, dock);
 	m_measurements = new Measurements;
 	dock->setWidget(m_measurements);
 
 	m_cursorDock = new QDockWidget(tr("Cursors"), this);
-	m_cursorDock->setFeatures(QDockWidget::AllDockWidgetFeatures);
+	m_cursorDock->setFeatures(QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetFloatable);
 	m_cursorDock->setAllowedAreas(Qt::LeftDockWidgetArea /*| Qt::RightDockWidgetArea*/);
 	addDockWidget(Qt::RightDockWidgetArea, m_cursorDock);
 	m_pointsView = new PointTableView(m_pointsModel);
@@ -152,7 +152,7 @@ void MainWindow::start()
 
 void MainWindow::started()
 {
-	m_running->setOnOff(true);
+	m_running->setLed(LedIconSource::Green);
 }
 
 void MainWindow::stopped()
@@ -176,18 +176,18 @@ void MainWindow::about()
 		     "<br>&copy; %4, %5,<br>Mail: <a href=\"mailto:%6\">%6</a>"
 		     "<p>Using  <img src=\":/stdicons/qt-logo-about.png\"> %8"
 		     "<p>%7"
-		     );
+		    );
 	QString info = m_scope->getScopeInfo();
 	text = text
-			.arg(qApp->applicationName())
-			.arg(qApp->applicationDisplayName())
-			.arg(qApp->applicationVersion())
-			.arg(year)
-			.arg(qApp->organizationName())
-			.arg(qApp->organizationDomain())
-			.arg(info)
-			.arg(qVersion())
-			;
+	       .arg(qApp->applicationName())
+	       .arg(qApp->applicationDisplayName())
+	       .arg(qApp->applicationVersion())
+	       .arg(year)
+	       .arg(qApp->organizationName())
+	       .arg(qApp->organizationDomain())
+	       .arg(info)
+	       .arg(qVersion())
+	       ;
 	QMessageBox::about(this, qApp->applicationName(), text);
 	setWindowIcon(saveIcon);
 	m_scope->getVersion();
@@ -225,8 +225,8 @@ void MainWindow::savePng()
 {
 //	qDebug() << Q_FUNC_INFO;
 	QString fileName = QFileDialog::getSaveFileName(this, tr("Save Screen Shot"),
-							m_conf->value("file").toString(),
-							tr("PNG (*.png);;All Files (*)"));
+			   m_conf->value("file").toString(),
+			   tr("PNG (*.png);;All Files (*)"));
 	if (! fileName.isEmpty())
 	{
 		if (! fileName.endsWith(".png"))
@@ -239,7 +239,7 @@ void MainWindow::savePng()
 		img.setText("Date/Time", QDateTime::currentDateTime().toString(Qt::ISODate));
 		/*bool rc =*/ img.save(fileName);
 //		qDebug() << Q_FUNC_INFO << fileName << rc;
-		statusBar()->showMessage("SavedTo " + fileName, 10*1000);
+		statusBar()->showMessage("SavedTo " + fileName, 10 * 1000);
 	}
 }
 
@@ -247,8 +247,8 @@ void MainWindow::saveData()
 {
 //	qDebug() << Q_FUNC_INFO;
 	QString fileName = QFileDialog::getSaveFileName(this, tr("Save Data"),
-							m_conf->value("file").toString(),
-							tr("DAT (*.dat);;All Files (*)"));
+			   m_conf->value("file").toString(),
+			   tr("DAT (*.dat);;All Files (*)"));
 	if (! fileName.isEmpty())
 	{
 		if (! fileName.endsWith(".dat"))
@@ -259,15 +259,15 @@ void MainWindow::saveData()
 		save.setValue("@/program", qApp->applicationName());
 		save.setValue("@/version", qApp->applicationVersion());
 		m_screen->saveData(save);
-		statusBar()->showMessage("SavedTo " + save.fileName(), 10*1000);
+		statusBar()->showMessage("SavedTo " + save.fileName(), 10 * 1000);
 	}
 }
 
 void MainWindow::loadData()
 {
 	QString fileName = QFileDialog::getOpenFileName(this, tr("Load Data"),
-							m_conf->value("file").toString(),
-							tr("DAT (*.dat);;All Files (*)"));
+			   m_conf->value("file").toString(),
+			   tr("DAT (*.dat);;All Files (*)"));
 	if (! fileName.isEmpty())
 	{
 		if (! fileName.endsWith(".dat"))

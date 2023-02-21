@@ -2,31 +2,47 @@
 active=true
 dc=true
 probe=10
-res=0
+res=3
 
 [channel1]
 active=true
 dc=true
 probe=10
-res=0
+res=3
 
 [cursor]
-1\Ch0=0
+1\Ch0=3.1706622953692185
 1\Ch1=0
 1\Id="1T "
-1\Time=3.6748120300751879
-size=1
+1\Time=-0.008837909522903985
+2\Ch0=3.322265625
+2\Ch1=0
+2\Id="2T "
+2\Time=2
+3\Ch0=0.029296875
+3\Ch1=0.009765625
+3\Id="3T "
+3\Time=0.034234358075733544
+4\Ch0=0.01953125
+4\Ch1=0
+4\Id="4T "
+4\Time=1.1879982332155476
+5\Ch0=1.8126888217522663
+5\Ch1=nan
+5\Id="Ch0#1 "
+5\Time=nan
+size=0
 
 [scope]
-depth=512
+depth=2041
 rate=1000000
-running=false
-unit1=0
-unit2=
+running=true
+unit1=0.001
+unit2=" ms"
 
 [trigger]
-channel=0
-edge=0
-level=0
+channel=1
+edge=1
+level=1.462
 mode=0
-pos=0
+pos=90

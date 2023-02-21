@@ -6,16 +6,17 @@
 # // ******************************************************
 
 TEMPLATE = app
-include( ./templateQt5/project.pri )
-include( ./templateQt5/lib/utils/stdicons.pri )
-include( ./templateQt5/lib/utils/toolbarspacer.pri )
-include( ./templateQt5/lib/utils/ledicon/ledicon.pri )
+include( $$[PRTEMPLATE]/project.pri )
+include( $$[PRTEMPLATE]/lib/utils/stdicons.pri )
+include( $$[PRTEMPLATE]/lib/utils/toolbarspacer.pri )
+include( $$[PRTEMPLATE]/lib/utils/ledicon/ledicon.pri )
 include( ./serialport/ipccomm.pri )
-include( ./templateQt5/qcustomplot.pri )
+#include( $$[PRTEMPLATE]/qcustomplot.pri )
+DEFINES += QCUSTOMPLOT_USE_LIBRARY QCUSTOM_PLOT
 
 # select which ones are needed
 QT += core gui widgets
-QT += serialport
+QT += serialport printsupport
 
 DESTDIR=./bin
 
@@ -23,6 +24,7 @@ HEADERS += \
     mainwindow.h \
     propscope.h \
     channelsetup.h \
+    qcustomplot.h \
     scopescreen.h \
     scopesetup.h \
     triggersetup.h \
@@ -44,6 +46,7 @@ SOURCES += \
     mainwindow.cpp \
     propscope.cpp \
     channelsetup.cpp \
+    qcustomplot.cpp \
     scopescreen.cpp \
     scopesetup.cpp \
     triggersetup.cpp \
